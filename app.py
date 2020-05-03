@@ -127,7 +127,6 @@ def update():
             btn_enable = tk.Button(
                 master=frm_click_point,
                 text=z,
-                highlightbackground='#3E4149',
                 command=lambda a=ind, b=0: handle_enable(a, b)
             )
 
@@ -136,7 +135,6 @@ def update():
             tk.Button(
                 master=frm_click_point,
                 text="Del",
-                highlightbackground='#3E4149',
                 command=lambda a=ind, b=0: handle_delete(a, b)
             ).grid(row=ind, column=4, sticky="w")
 
@@ -152,14 +150,12 @@ def update():
             tk.Button(
                 master=frm_point_upgrade,
                 text=z,
-                highlightbackground='#3E4149',
                 command=lambda a=ind, b=1: handle_enable(a, b)
             ).grid(row=ind, column=3, sticky="w")
 
             tk.Button(
                 master=frm_point_upgrade,
                 text="Del",
-                highlightbackground='#3E4149',
                 command=lambda a=ind, b=1: handle_delete(a, b)
             ).grid(row=ind, column=4, sticky="w")
 
@@ -214,14 +210,12 @@ cb_is_upgrade = tk.Checkbutton(master=frm_choose, variable=is_upgrade, onvalue=T
 btn_choose = tk.Button(
     master=frm_choose,
     text="Choose Point",
-    highlightbackground='#3E4149',
     command=handle_choose_point
 )
 
 btn_add = tk.Button(
     master=frm_choose,
     text="Add Point",
-    highlightbackground='#3E4149',
     command=handle_add_point
 )
 
@@ -247,14 +241,12 @@ update()
 tk.Button(
     master=frm_point,
     text="Del All",
-    highlightbackground='#3E4149',
     command=lambda a=True: delete_all(False)
 ).grid(row=2, column=0)
 
 tk.Button(
     master=frm_point,
     text="Del All",
-    highlightbackground='#3E4149',
     command=lambda a=True: delete_all(True)
 ).grid(row=2, column=1)
 
