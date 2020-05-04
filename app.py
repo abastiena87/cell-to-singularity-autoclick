@@ -18,6 +18,10 @@ current_point = []
 
 point_data = []
 point_upgrade = []
+
+point_data_enable = True
+point_upgrade_enable = True
+
 try:
     filehandler = open('data.pkl', 'rb')
     object = pickle.load(filehandler)
@@ -50,7 +54,6 @@ def start_event():
 
 
 def auto_click(x, y):
-    print(x, y)
     global count, is_run
     try:
         while True:
@@ -83,6 +86,22 @@ def delete_all(upgrade):
         point_upgrade = []
     else:
         point_data = []
+    update()
+
+
+def toggle_all(upgrade):
+    global point_upgrade
+    global point_data
+    global point_data_enable
+    global point_upgrade_enable
+    if upgrade:
+        for point in point_upgrade:
+            point[2] = point_upgrade_enable
+        point_upgrade_enable = not point_upgrade_enable
+    else:
+        for point in point_data:
+            point[2] = point_data_enable
+        point_data_enable = not point_data_enable
     update()
 
 
@@ -249,6 +268,18 @@ tk.Button(
     text="Del All",
     command=lambda a=True: delete_all(True)
 ).grid(row=2, column=1)
+
+tk.Button(
+    master=frm_point,
+    text="Toggle",
+    command=lambda a=True: toggle_all(False)
+).grid(row=3, column=0)
+
+tk.Button(
+    master=frm_point,
+    text="Toggle",
+    command=lambda a=True: toggle_all(True)
+).grid(row=3, column=1)
 
 frm_point.grid(row=1, column=0)
 
